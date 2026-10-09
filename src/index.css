@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark-400 text-gray-100 antialiased;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-width: 320px;
+  }
+  button, input, textarea, select {
+    font: inherit;
+  }
+  button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+    outline: 2px solid theme('colors.info.400');
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-accent-500 text-white font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:bg-accent-600 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-accent-500/30 active:translate-y-0;
+  }
+  .btn-info {
+    @apply bg-info-500 text-white font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:bg-info-600 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-info-500/30 active:translate-y-0;
+  }
+  .btn-outline {
+    @apply border-2 border-info-500 text-info-500 font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:bg-info-500/10 hover:-translate-y-0.5 active:translate-y-0;
+  }
+  .btn-success {
+    @apply bg-success-500 text-white font-semibold rounded-lg px-6 py-3 transition-all duration-300 hover:bg-success-600 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-success-500/30 active:translate-y-0;
+  }
+  .card {
+    @apply bg-dark-200 border border-dark-50 rounded-xl overflow-hidden transition-all duration-300;
+  }
+  .card-hover {
+    @apply hover:-translate-y-2.5 hover:shadow-2xl hover:border-accent-500/30;
+  }
+  .input-field {
+    @apply w-full px-4 py-3 rounded-lg bg-dark-400/50 border border-dark-50 text-gray-100 placeholder-gray-500 transition-all duration-300 focus:outline-none focus:border-info-500 focus:ring-2 focus:ring-info-500/20;
+    min-height: 48px;
+  }
+  .section-title {
+    @apply text-center text-3xl md:text-4xl font-bold text-gray-100 relative pb-3;
+  }
+  .section-title::after {
+    content: '';
+    @apply absolute left-1/2 -translate-x-1/2 bottom-0 w-20 h-1 bg-accent-500 rounded-full;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0d121b;
+}
+::-webkit-scrollbar-thumb {
+  background: #2a3a4d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #486581;
+}
